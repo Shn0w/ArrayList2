@@ -2,10 +2,11 @@ import java.util.*;
 
 class Main{
     public static void main(String[] args){
-        System.out.println(two(100));
+        
+        System.out.println(add(new ArrayList<Integer>(Arrays.asList(9, 9, 9)), new ArrayList<Integer>(Arrays.asList(8, 7, 6))));
     }
 
-    public static ArrayList<Integer> one(int n){
+    public static ArrayList<Integer> one(int n){    
         ArrayList<Integer> ar = new ArrayList<>();
         for(int i = 2; i<=n; i++){
             ar.add(i);
@@ -27,16 +28,22 @@ class Main{
         return "-1";
     }
 
-    public static ArrayList<Integer> three(ArrayList<Integer> a, ArrayList<Integer> b){
-        ArrayList<Integer> big;
-        ArrayList<Integer> sma;
-        if(a.size()>b.size()){ 
-            big = a;
-        }
-        else {
-            big = b;
+    public static ArrayList<Integer> add(ArrayList<Integer> big, ArrayList<Integer> sma){
+        if(sma.size()>big.size()){
+            ArrayList<Integer> tmp = big;
+            big = sma;
+            sma = tmp;
         }
         big.add(0, 0);
-        
+        for(int i = 0; i<sma.size(); i++){
+            big.set(big.size()-1-i, big.get(big.size()-1-i) + sma.get(sma.size()-1-i));
+        }
+        for(int i = big.size()-1; i>0; i--){
+            if(big.get(i)>9){
+                big.set(i, big.get(i)-10);
+                big.set(i-1, big.get(i)+1);
+            }
+        }
+        return big;
     }
 }
