@@ -6,7 +6,7 @@ class Main{
         System.out.println(add(new ArrayList<Integer>(Arrays.asList(9, 9, 9)), new ArrayList<Integer>(Arrays.asList(8, 7, 6))));
     }
 
-    public static ArrayList<Integer> one(int n){    
+    public static ArrayList<Integer> sieveofEratosthenes(int n){    
         ArrayList<Integer> ar = new ArrayList<>();
         for(int i = 2; i<=n; i++){
             ar.add(i);
@@ -20,7 +20,7 @@ class Main{
         return ar;
     }
 
-    public static String two(int n){
+    public static String goldbachConjecture(int n){
         ArrayList<Integer> ar = one(n);
         for(int i:ar){
             if(ar.contains(n-i)) return i + " " + (n-i);
