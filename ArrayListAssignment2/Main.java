@@ -41,8 +41,11 @@ class Main{
         for(int i = big.size()-1; i>0; i--){
             if(big.get(i)>9){
                 big.set(i, big.get(i)-10);
-                big.set(i-1, big.get(i)+1);
+                big.set(i-1, big.get(i-1)+1);
             }
+        }
+        if(big.get(0)==0){
+            big.remove(0);
         }
         return big;
     }
